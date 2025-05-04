@@ -1,0 +1,6 @@
+game-shop/
+├── public/
+│   ├── index.html
+│   └── style.css
+├── server.js
+├── package.json
