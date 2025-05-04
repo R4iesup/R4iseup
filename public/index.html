@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>ร้านขายไอดีเกม</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>ร้านขายไอดีเกม</h1>
+  <div id="account-list"></div>
+
+  <script>
+    fetch('/api/accounts')
+      .then(res => res.json())
+      .then(data => {
+        const list = document.getElementById('account-list');
+        data.forEach(account => {
+          const item = document.createElement('div');
+          item.className = 'account';
+          item.innerHTML = `
+            <h2>${account.name}</h2>
+            <p>${account.description}</p>
+            <strong>ราคา: ${account.price} บาท</strong>
+            <button>ซื้อเลย</button>
+          `;
+          list.appendChild(item);
+        });
+      });
+  </script>
+</body>
+</html>
